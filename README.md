@@ -8,7 +8,20 @@ To run the application, download the *todoApp* folder then run the file named *t
 
 
 ## Using the application
-Use this and that and your all set!!!!!!!!!!!!!!!
+### -Add a task
+To add a task, click on the prompt then type your task. After that's done, click on the *Add Task* button next to the prompt.
+<br/>
+### -Editing a task
+To edit, double click on the desired task.
+<br/>
+### -Delete a task
+To delete, click on the desired task then click the *Delete Task* button.
+<br/>
+### -Delete all tasks
+To delete all, click on the *Delete All Tasks* button.
+<br/>
+### -Exit program
+To exit, simply click on the *Quit* button down below.
 <br/><br/>
 
 
