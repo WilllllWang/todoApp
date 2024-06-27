@@ -13,6 +13,16 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowFlags(Qt::FramelessWindowHint);
     this->setStyleSheet("background-color: rgb(250,234,195);");
 
+    ui->title->setStyleSheet(
+                            "font: bold 25px;"
+                            "color: black;"
+                            );
+
+    ui->author->setStyleSheet(
+                            "font-size: 10px;"
+                            "color: black;"
+                            );
+
     ui->prompt->setStyleSheet(
                             "font: bold 14px;"
                             "color: black;"

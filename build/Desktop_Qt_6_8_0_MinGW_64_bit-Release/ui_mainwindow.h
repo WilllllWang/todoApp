@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
@@ -29,6 +30,8 @@ public:
     QPushButton *removeAllButton;
     QLineEdit *prompt;
     QPushButton *quitButton;
+    QLabel *title;
+    QLabel *author;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -55,6 +58,12 @@ public:
         quitButton = new QPushButton(centralwidget);
         quitButton->setObjectName("quitButton");
         quitButton->setGeometry(QRect(180, 570, 91, 31));
+        title = new QLabel(centralwidget);
+        title->setObjectName("title");
+        title->setGeometry(QRect(160, 10, 191, 21));
+        author = new QLabel(centralwidget);
+        author->setObjectName("author");
+        author->setGeometry(QRect(430, 590, 41, 16));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -69,6 +78,8 @@ public:
         removeButton->setText(QCoreApplication::translate("MainWindow", "Remove  Task", nullptr));
         removeAllButton->setText(QCoreApplication::translate("MainWindow", "Remove All Tasks", nullptr));
         quitButton->setText(QCoreApplication::translate("MainWindow", "Quit", nullptr));
+        title->setText(QCoreApplication::translate("MainWindow", "  TODO APP", nullptr));
+        author->setText(QCoreApplication::translate("MainWindow", "By \347\216\213\351\250\217", nullptr));
     } // retranslateUi
 
 };
