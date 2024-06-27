@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <Qfile>
 #include <QMessageBox>
+#include <QMouseEvent>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -10,6 +11,63 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::FramelessWindowHint);
+    this->setStyleSheet("background-color: rgb(250,234,195);");
+
+    ui->prompt->setStyleSheet(
+                            "font: bold 14px;"
+                            "color: black;"
+                            "background-color: rgb(245,245,220);"
+                            "selection-color: white;"
+                            "selection-background-color: rgb(120,120,120);");
+
+    ui->addButton->setStyleSheet(
+                                "background-color: rgb(245,245,220);"
+                                "border-style: outset;"
+                                "border-width: 2px;"
+                                "border-radius: 10px;"
+                                "border-color: gray;"
+                                "font: bold 14px;"
+                                "min-width: 5em;"
+                                "padding: 6px;");
+
+    ui->quitButton->setStyleSheet(
+                                    "background-color: rgb(245,245,220);"
+                                    "border-style: outset;"
+                                    "border-width: 2px;"
+                                    "border-radius: 10px;"
+                                    "border-color: gray;"
+                                    "font: bold 14px;"
+                                    "min-width: 5em;"
+                                    "padding: 6px;");
+
+    ui->removeButton->setStyleSheet(
+                                    "background-color: rgb(245,245,220);"
+                                    "border-style: outset;"
+                                    "border-width: 2px;"
+                                    "border-radius: 10px;"
+                                    "border-color: gray;"
+                                    "font: bold 14px;"
+                                    "min-width: 5em;"
+                                    "padding: 6px;");
+
+    ui->removeAllButton->setStyleSheet(
+                                    "background-color: rgb(245,245,220);"
+                                    "border-style: outset;"
+                                    "border-width: 2px;"
+                                    "border-radius: 10px;"
+                                    "border-color: gray;"
+                                    "font: bold 14px;"
+                                    "min-width: 5em;"
+                                    "padding: 6px;");
+
+    ui->tasks->setStyleSheet(
+                            "color: black;"
+                            "background-color: rgb(245,245,220);"
+                            "selection-color: white;"
+                            "selection-background-color: rgb(120,120,120);"
+                            "font: bold 14px;"
+                            );
+
 
     // Read previous saved tasks
     QFile file(filePath);
@@ -49,17 +107,13 @@ void MainWindow::on_addButton_clicked()
 {
     // Check if new task is empty
     QString newTask = ui->prompt->text();
-    bool empty = false;
-    if (newTask == "") {
-        empty = true;
-    }
-    else {
-        for (auto& c: newTask) {
-            if (c == " ") {
-                empty = true;
-            }
+    bool empty = true;
+    for (auto& c: newTask) {
+        if (c != " ") {
+            empty = false;
         }
     }
+
 
     // Add to widget list if not empty
     if (!empty) {
@@ -90,3 +144,13 @@ void MainWindow::on_quitButton_clicked()
     qApp->exit(0);
 }
 
+
+void MainWindow::mousePressEvent(QMouseEvent *event) {
+    m_nMouseClick_X_Coordinate = event->x();
+    m_nMouseClick_Y_Coordinate = event->y();
+}
+
+
+void MainWindow::mouseMoveEvent(QMouseEvent *event) {
+    move(event->globalX()-m_nMouseClick_X_Coordinate,event->globalY()-m_nMouseClick_Y_Coordinate);
+}

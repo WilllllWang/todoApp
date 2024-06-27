@@ -34,27 +34,27 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(476, 600);
+        MainWindow->resize(476, 613);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         addButton = new QPushButton(centralwidget);
         addButton->setObjectName("addButton");
-        addButton->setGeometry(QRect(340, 30, 121, 31));
+        addButton->setGeometry(QRect(340, 60, 81, 31));
         tasks = new QListWidget(centralwidget);
         tasks->setObjectName("tasks");
-        tasks->setGeometry(QRect(50, 90, 371, 401));
+        tasks->setGeometry(QRect(50, 110, 371, 401));
         removeButton = new QPushButton(centralwidget);
         removeButton->setObjectName("removeButton");
-        removeButton->setGeometry(QRect(50, 500, 111, 24));
+        removeButton->setGeometry(QRect(50, 530, 131, 31));
         removeAllButton = new QPushButton(centralwidget);
         removeAllButton->setObjectName("removeAllButton");
-        removeAllButton->setGeometry(QRect(309, 500, 111, 24));
+        removeAllButton->setGeometry(QRect(290, 530, 131, 31));
         prompt = new QLineEdit(centralwidget);
         prompt->setObjectName("prompt");
-        prompt->setGeometry(QRect(50, 30, 261, 31));
+        prompt->setGeometry(QRect(50, 60, 271, 31));
         quitButton = new QPushButton(centralwidget);
         quitButton->setObjectName("quitButton");
-        quitButton->setGeometry(QRect(190, 560, 91, 24));
+        quitButton->setGeometry(QRect(180, 570, 91, 31));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -66,7 +66,7 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         addButton->setText(QCoreApplication::translate("MainWindow", "Add Task", nullptr));
-        removeButton->setText(QCoreApplication::translate("MainWindow", "Remove a task", nullptr));
+        removeButton->setText(QCoreApplication::translate("MainWindow", "Remove A Task", nullptr));
         removeAllButton->setText(QCoreApplication::translate("MainWindow", "Remove All Tasks", nullptr));
         quitButton->setText(QCoreApplication::translate("MainWindow", "Quit", nullptr));
     } // retranslateUi
