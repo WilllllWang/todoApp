@@ -12,37 +12,35 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Read previous saved tasks
     QFile file(filePath);
-    if (!file.open(QIODevice::ReadWrite)) {
-        QMessageBox::information(0, "error", file.errorString());   // Error checking
-    }
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        // bind it
+        QTextStream in(&file);
 
-    QTextStream openfile(&file);  // Create stream to read file
-    while (!openfile.atEnd()) {
-        QListWidgetItem* item = new QListWidgetItem(openfile.readLine(), ui->tasks);
-        ui->tasks->addItem(item);
-        item->setFlags(item->flags() | Qt::ItemIsEditable);
-    }
+        while(!in.atEnd()) {
+            QString line = in.readLine();
+            ui->tasks->addItem(line);
+        }
 
-    file.close();
+        file.close();
+    }
 }
 
 
 MainWindow::~MainWindow()
 {
-    delete ui;
-
-    // Save new tasks
     QFile file(filePath);
-    if (!file.open(QIODevice::ReadWrite)) {
-        QMessageBox::information(0, "error", file.errorString());   // Error checking
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        // bind it
+        QTextStream out(&file);
+        for (int i = 0; i < ui->tasks->count(); i++) {
+            QListWidgetItem *item = ui->tasks->item(i);
+            out << item->text() << '\n';
+        }
+
+        file.close();
     }
 
-    QTextStream savefile(&file);  // Create stream to save file
-    for (int i = 0; i < ui->tasks->count(); i++) {
-        savefile << ui->tasks->item(i)->text() << "\n"; // Output tasks to file and save
-    }
-
-    file.close();
+    ui->tasks->clear();
 }
 
 
@@ -65,6 +63,6 @@ void MainWindow::on_removeButton_clicked()
 
 void MainWindow::on_removeAllButton_clicked()
 {
-    ui->tasks->clear();     // Delete all tasks
+    ui->tasks->clear(); // Delete all tasks
 }
 
