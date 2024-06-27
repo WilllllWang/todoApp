@@ -1,5 +1,5 @@
 # Todo App
-## A simple todo app created using QT studio in c++
+## A simple todo app created using C++ in QT creator
 
 
 ## How to run application
@@ -11,7 +11,8 @@ Use this and that and your all set!!!!!!!!!!!!!!!
 
 
 ## Reference
-The official documentation of QT studio: https://doc.qt.io/
+The official documentation of QT:  https://doc.qt.io/
 
 
 ## License
+The MIT License.
