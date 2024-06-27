@@ -1,17 +1,20 @@
 # Todo App
 ## A simple todo app created using C++ in QT creator
+<br/><br/>
 
-
-## How to run application
+## Running the application
 To run the application, download the *todoApp* folder then run the file named *todoApp.exe*.
+<br/><br/>
 
 
-## How to use application
+## Using the application
 Use this and that and your all set!!!!!!!!!!!!!!!
+<br/><br/>
 
 
 ## Reference
 The official documentation of QT:  https://doc.qt.io/
+<br/><br/>
 
 
 ## License
