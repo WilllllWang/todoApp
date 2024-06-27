@@ -66,7 +66,7 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         addButton->setText(QCoreApplication::translate("MainWindow", "Add Task", nullptr));
-        removeButton->setText(QCoreApplication::translate("MainWindow", "Remove A Task", nullptr));
+        removeButton->setText(QCoreApplication::translate("MainWindow", "Remove  Task", nullptr));
         removeAllButton->setText(QCoreApplication::translate("MainWindow", "Remove All Tasks", nullptr));
         quitButton->setText(QCoreApplication::translate("MainWindow", "Quit", nullptr));
     } // retranslateUi

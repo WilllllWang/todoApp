@@ -47,7 +47,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Remove A Task</string>
+     <string>Remove  Task</string>
     </property>
    </widget>
    <widget class="QPushButton" name="removeAllButton">
