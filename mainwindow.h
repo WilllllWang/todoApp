@@ -26,6 +26,8 @@ private slots:
 
     void on_removeAllButton_clicked();
 
+    void on_quitButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 

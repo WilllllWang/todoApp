@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Add</string>
+     <string>Add Task</string>
     </property>
    </widget>
    <widget class="QListWidget" name="tasks">
@@ -40,27 +40,27 @@
    <widget class="QPushButton" name="removeButton">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>520</y>
-      <width>80</width>
+      <x>50</x>
+      <y>500</y>
+      <width>111</width>
       <height>24</height>
      </rect>
     </property>
     <property name="text">
-     <string>Remove</string>
+     <string>Remove a task</string>
     </property>
    </widget>
    <widget class="QPushButton" name="removeAllButton">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>520</y>
-      <width>80</width>
+      <x>309</x>
+      <y>500</y>
+      <width>111</width>
       <height>24</height>
      </rect>
     </property>
     <property name="text">
-     <string>Remove All</string>
+     <string>Remove All Tasks</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="prompt">
@@ -71,6 +71,19 @@
       <width>261</width>
       <height>31</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="quitButton">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>560</y>
+      <width>91</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Quit</string>
     </property>
    </widget>
   </widget>

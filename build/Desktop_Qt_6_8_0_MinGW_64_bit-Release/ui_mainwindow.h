@@ -28,6 +28,7 @@ public:
     QPushButton *removeButton;
     QPushButton *removeAllButton;
     QLineEdit *prompt;
+    QPushButton *quitButton;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -44,13 +45,16 @@ public:
         tasks->setGeometry(QRect(50, 90, 371, 401));
         removeButton = new QPushButton(centralwidget);
         removeButton->setObjectName("removeButton");
-        removeButton->setGeometry(QRect(240, 520, 80, 24));
+        removeButton->setGeometry(QRect(50, 500, 111, 24));
         removeAllButton = new QPushButton(centralwidget);
         removeAllButton->setObjectName("removeAllButton");
-        removeAllButton->setGeometry(QRect(330, 520, 80, 24));
+        removeAllButton->setGeometry(QRect(309, 500, 111, 24));
         prompt = new QLineEdit(centralwidget);
         prompt->setObjectName("prompt");
         prompt->setGeometry(QRect(50, 30, 261, 31));
+        quitButton = new QPushButton(centralwidget);
+        quitButton->setObjectName("quitButton");
+        quitButton->setGeometry(QRect(190, 560, 91, 24));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -61,9 +65,10 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        addButton->setText(QCoreApplication::translate("MainWindow", "Add", nullptr));
-        removeButton->setText(QCoreApplication::translate("MainWindow", "Remove", nullptr));
-        removeAllButton->setText(QCoreApplication::translate("MainWindow", "Remove All", nullptr));
+        addButton->setText(QCoreApplication::translate("MainWindow", "Add Task", nullptr));
+        removeButton->setText(QCoreApplication::translate("MainWindow", "Remove a task", nullptr));
+        removeAllButton->setText(QCoreApplication::translate("MainWindow", "Remove All Tasks", nullptr));
+        quitButton->setText(QCoreApplication::translate("MainWindow", "Quit", nullptr));
     } // retranslateUi
 
 };

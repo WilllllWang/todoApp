@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setWindowFlags(Qt::FramelessWindowHint);
 
     // Read previous saved tasks
     QFile file(filePath);
@@ -46,9 +47,26 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_addButton_clicked()
 {
-    QListWidgetItem* item = new QListWidgetItem(ui->prompt->text(), ui->tasks);
-    ui->tasks->addItem(item);
-    item->setFlags(item->flags() | Qt::ItemIsEditable); // Allow tasks to be edited
+    // Check if new task is empty
+    QString newTask = ui->prompt->text();
+    bool empty = false;
+    if (newTask == "") {
+        empty = true;
+    }
+    else {
+        for (auto& c: newTask) {
+            if (c == " ") {
+                empty = true;
+            }
+        }
+    }
+
+    // Add to widget list if not empty
+    if (!empty) {
+        QListWidgetItem* item = new QListWidgetItem(newTask, ui->tasks);
+        ui->tasks->addItem(item);
+        item->setFlags(item->flags() | Qt::ItemIsEditable); // Allow tasks to be edited
+    }
     ui->prompt->clear();                                // Clear prompt
     ui->prompt->setFocus();                             // No need to click on prompt again after typing
 }
@@ -64,5 +82,11 @@ void MainWindow::on_removeButton_clicked()
 void MainWindow::on_removeAllButton_clicked()
 {
     ui->tasks->clear(); // Delete all tasks
+}
+
+
+void MainWindow::on_quitButton_clicked()
+{
+    qApp->exit(0);
 }
 
